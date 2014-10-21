@@ -46,15 +46,15 @@ class TreeExtension extends CompilerExtension implements IEntityProvider
 	 */
 	private function getGedmoTreeEntityPath()
 	{
-		$path = __DIR__  . '/../../../../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity';
-		if ($path = realpath($path)) {
+		$relativePath = '/vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity';
+		if ($path = realpath(__DIR__  . '/../../../..' . $relativePath)) {
 			return $path;
 		}
 
-		$path = getcwd() . '/vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity';
-		if ($path = realpath($path)) {
+		if ($path = realpath(__DIR__  . '/../../../../../../..' . $relativePath)) {
 			return $path;
 		}
+
 		return FALSE;
 	}
 
