@@ -1,0 +1,13 @@
+Kdyby\GeneratedProxy\__CG__\Project\Entities\Category::__set_state(array(
+	'__initializer__' => Closure::__set_state(array(
+		0 => /* Nesting level too deep or recursive dependency */,
+	)),
+	'__cloner__' => Closure::__set_state(array(
+		0 => /* Nesting level too deep or recursive dependency */,
+	)),
+	'__isInitialized__' => FALSE,
+	'id' => 1,
+	'name' => NULL,
+	'parent' => NULL,
+	'children' => NULL,
+))
