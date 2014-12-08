@@ -9,7 +9,6 @@ namespace Zenify\DoctrineExtensionsTree\DI;
 
 use Doctrine\Common\Annotations\Reader;
 use Gedmo\Tree\TreeListener;
-use Kdyby\Doctrine\DI\IEntityProvider;
 use Kdyby\Events\DI\EventsExtension;
 use Nette\DI\CompilerExtension;
 
