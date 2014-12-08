@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Model;
+namespace ZenifyTests\Project\Model;
 
 use Gedmo;
 use Nette;

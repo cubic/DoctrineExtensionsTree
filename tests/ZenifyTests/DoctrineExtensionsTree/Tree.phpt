@@ -1,16 +1,15 @@
 <?php
 
-namespace LekarnaTests\DoctrineExtensionsTree;
+namespace ZenifyTests\DoctrineExtensionsTree;
 
 use Gedmo\Tree\Entity\Repository\MaterializedPathRepository;
+use Gedmo\Tree\TreeListener;
 use Kdyby\Doctrine\Connection;
-use Kdyby\Doctrine\EntityDao;
 use Kdyby\Doctrine\EntityManager;
 use Nette;
-use Project\Entities\Category;
-use Project\Model\CategoryTree;
 use Tester\Assert;
 use Tester\TestCase;
+use ZenifyTests\Project\Entities\Category;
 
 
 $container = require __DIR__ . '/../bootstrap.php';
@@ -48,8 +47,8 @@ class TreeTest extends TestCase
 
 	protected function setUp()
 	{
-		$this->em = $this->container->getByType('Kdyby\Doctrine\EntityManager');
-		$this->categoryDao = $this->em->getDao(Category::getClassName());
+		$this->em = $this->container->getByType(EntityManager::class);
+		$this->categoryDao = $this->em->getDao(Category::class);
 		$this->prepareDbData();
 	}
 
@@ -57,8 +56,8 @@ class TreeTest extends TestCase
 	public function testInstance()
 	{
 		Assert::type(
-			'Gedmo\Tree\TreeListener',
-			$this->container->getByType('Gedmo\Tree\TreeListener')
+			TreeListener::class,
+			$this->container->getByType(TreeListener::class)
 		);
 	}
 
@@ -68,13 +67,13 @@ class TreeTest extends TestCase
 		/** @var Category $category */
 		$category = $this->categoryDao->find(2);
 		Assert::type(
-			'Project\Entities\Category',
+			Category::class,
 			$category
 		);
 		Assert::same('Apple', $category->getName());
 
 		Assert::type(
-			'Project\Entities\Category',
+			Category::class,
 			$category->getParent()
 		);
 		Assert::same('Fruit', $category->getParent()->getName());
@@ -133,4 +132,4 @@ class TreeTest extends TestCase
 }
 
 
-\run(new TreeTest($container));
+(new TreeTest($container))->run();

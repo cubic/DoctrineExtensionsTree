@@ -1,18 +1,12 @@
 {
-	"name": "lekarna/doctrine-extensions-tree",
+	"name": "zenify/doctrine-extensions-tree",
 	"description": "Implementation of Tree from DoctrineExtensions to Nette.",
 	"license": "MIT",
 	"authors": [
-		{
-			"name": "Tomáš Votruba",
-			"homepage": "http://tomasvotruba.cz"
-		},
-        {
-            "name": "Pears Health Cyber, s.r.o.",
-            "homepage": "http://pearshealthcyber.cz"
-        }
+		{ "name": "Tomáš Votruba", "homepage": "http://tomasvotruba.cz" }
 	],
 	"require": {
+		"php": ">=5.5",
         "kdyby/doctrine": "~2.0",
         "gedmo/doctrine-extensions": "~2.3"
 	},
@@ -23,11 +17,12 @@
         "nette/bootstrap": "~2.0",
         "nette/mail": "~2.0",
         "nette/safe-stream": "~2.0",
-		"jakub-onderka/php-parallel-lint": "~0.8"
+		"jakub-onderka/php-parallel-lint": "~0.8",
+		"zenify/coding-standard": "~2.0"
 	},
 	"autoload": {
-		"psr-0": {
-			"Lekarna\\": "src/"
+		"psr-4": {
+			"Zenify\\DoctrineExtensionsTree\\": "src/"
 		}
 	}
 }
