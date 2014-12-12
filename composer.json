@@ -7,15 +7,15 @@
 	],
 	"require": {
 		"php": ">=5.5",
-        "kdyby/doctrine": "~2.0",
-        "gedmo/doctrine-extensions": "~2.3"
+		"kdyby/doctrine": "~2.0",
+		"gedmo/doctrine-extensions": "~2.3"
 	},
 	"require-dev": {
 		"tracy/tracy": "~2.2",
-        "nette/di": "~2.0",
-        "nette/bootstrap": "~2.0",
-        "nette/mail": "~2.0",
-        "nette/safe-stream": "~2.0",
+		"nette/di": "~2.0",
+		"nette/bootstrap": "~2.0",
+		"nette/mail": "~2.0",
+		"nette/safe-stream": "~2.0",
 		"jakub-onderka/php-parallel-lint": "~0.8",
 		"zenify/coding-standard": "~3.0",
 		"phpunit/phpunit": "~4.4"
