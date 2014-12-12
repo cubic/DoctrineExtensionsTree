@@ -1,0 +1,15 @@
+<phpunit
+    bootstrap="tests/ZenifyTests/bootstrap.php"
+    colors="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    convertErrorsToExceptions="true"
+    syntaxCheck="true"
+    verbose="true"
+>
+    <testsuites>
+        <testsuite>
+            <directory>tests/ZenifyTests/DoctrineExtensionsTree</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

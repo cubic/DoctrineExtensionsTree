@@ -1,7 +1,7 @@
 The MIT License
 ---------------
 
-Copyright (c) 2014 Pears Health Cyber, s.r.o. (http://pearshealthcyber.cz)
+Copyright (c) 2014 Tomáš Votruba (http://tomasvotruba.cz)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

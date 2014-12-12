@@ -1,3 +1,6 @@
+services:
+	- ZenifyTests\DatabaseLoader
+
 extensions:
 	- Zenify\DoctrineExtensionsTree\DI\TreeExtension
 	- Kdyby\Console\DI\ConsoleExtension
@@ -11,4 +14,3 @@ doctrine:
 	memory: true
 	metadata:
 		ZenifyTests: %appDir%/Project/Entities
-
