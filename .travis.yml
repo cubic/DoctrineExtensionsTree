@@ -20,8 +20,6 @@ before_script:
   - vendor/bin/parallel-lint -e php,phpt --exclude vendor .
   # php code sniffer
   - vendor/bin/phpcs src tests/ZenifyTests/DoctrineExtensionsTree --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/code-sniffer-ruleset.xml
-  # php mess-detector
-  - vendor/bin/phpmd src,tests text vendor/zenify/coding-standard/src/ZenifyCodingStandard/mess-detector-ruleset.xml
 
 script:
   - vendor/bin/phpunit --coverage-clover=coverage.clover
