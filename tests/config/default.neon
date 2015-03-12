@@ -1,5 +1,5 @@
 services:
-	- ZenifyTests\DatabaseLoader
+	- Zenify\DoctrineExtensionsTree\Tests\DatabaseLoader
 
 extensions:
 	- Zenify\DoctrineExtensionsTree\DI\TreeExtension
@@ -13,4 +13,4 @@ doctrine:
 	driver: pdo_sqlite
 	memory: true
 	metadata:
-		ZenifyTests: %appDir%/Project/Entities
+		Zenify\DoctrineExtensionsTree\Tests: %appDir%/Project/Entities

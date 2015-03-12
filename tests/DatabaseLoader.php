@@ -1,11 +1,10 @@
 <?php
 
-namespace ZenifyTests;
+namespace Zenify\DoctrineExtensionsTree\Tests;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
-use Nette;
-use ZenifyTests\Project\Entities\Category;
+use Zenify\DoctrineExtensionsTree\Tests\Project\Entities\Category;
 
 
 class DatabaseLoader
@@ -41,12 +40,8 @@ class DatabaseLoader
 			$this->connection->query('CREATE TABLE category (id INTEGER NOT NULL, parent_id int NULL,'
 				. 'path string, name string, PRIMARY KEY(id))');
 
-			$fruitCategory = new Category;
-			$fruitCategory->setName('Fruit');
-
-			$appleCategory = new Category;
-			$appleCategory->setName('Apple');
-			$appleCategory->setParent($fruitCategory);
+			$fruitCategory = new Category('Fruit');
+			$appleCategory = new Category('Apple', $fruitCategory);
 
 			$this->entityManager->persist($fruitCategory);
 			$this->entityManager->persist($appleCategory);

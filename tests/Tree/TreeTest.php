@@ -1,22 +1,23 @@
 <?php
 
-namespace ZenifyTests\DoctrineExtensionsTree;
+namespace Zenify\DoctrineExtensions\Tests\Tree;
 
 use Doctrine\ORM\EntityManager;
 use Gedmo\Tree\Entity\Repository\MaterializedPathRepository;
 use Gedmo\Tree\TreeListener;
 use Nette;
+use Nette\DI\Container;
 use PHPUnit_Framework_TestCase;
-use ZenifyTests\ContainerFactory;
-use ZenifyTests\DatabaseLoader;
-use ZenifyTests\Project\Entities\Category;
+use Zenify\DoctrineExtensionsTree\Tests\ContainerFactory;
+use Zenify\DoctrineExtensionsTree\Tests\DatabaseLoader;
+use Zenify\DoctrineExtensionsTree\Tests\Project\Entities\Category;
 
 
 class TreeTest extends PHPUnit_Framework_TestCase
 {
 
 	/**
-	 * @var Nette\DI\Container
+	 * @var Container
 	 */
 	private $container;
 

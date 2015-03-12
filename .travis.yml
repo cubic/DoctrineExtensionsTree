@@ -3,28 +3,27 @@ language: php
 php:
   - 5.5
   - 5.6
-  - hhvm
+  - 7.0
 
 matrix:
+  include:
+    - php: 5.5
+      env: NETTE_VERSION=2.2.*
   allow_failures:
-    - php: hhvm
-
-before_install:
-  - composer self-update
+    - php: 7.0
 
 install:
-  - composer install --no-interaction --prefer-source
+  - composer create-project --prefer-source --dev --no-interaction zenify/ci vendor/ci @dev
+  - . vendor/ci/travis/coverage-init.sh
+  - sh -c 'if [ "$NETTE_VERSION" != "" ]; then composer require --no-update nette/nette=$NETTE_VERSION; fi;'
+  - composer install --prefer-source
 
 before_script:
-  # php linter
-  - vendor/bin/parallel-lint -e php,phpt --exclude vendor .
-  # php code sniffer
-  - vendor/bin/phpcs src tests/ZenifyTests/DoctrineExtensionsTree --standard=vendor/zenify/coding-standard/src/ZenifyCodingStandard/code-sniffer-ruleset.xml
+  - . vendor/ci/travis/static-analysis.sh
 
 script:
-  - vendor/bin/phpunit --coverage-clover=coverage.clover
+  - phpunit $PHPUNIT_FLAGS
 
 after_script:
-  # move code coverage
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+  - . vendor/ci/travis/coverage-send.sh
+

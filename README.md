@@ -1,4 +1,4 @@
-# Zenify/DoctrineExtensionsTree
+# DoctrineExtensions - Tree
 
 [![Build Status](https://img.shields.io/travis/Zenify/DoctrineExtensionsTree.svg?style=flat-square)](https://travis-ci.org/Zenify/DoctrineExtensionsTree)
 [![Quality Score](https://img.shields.io/scrutinizer/g/Zenify/DoctrineExtensionsTree.svg?style=flat-square)](https://scrutinizer-ci.com/g/Zenify/DoctrineExtensionsTree)
@@ -9,12 +9,14 @@
 Implementation of [Tree from DoctrineExtensions](https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/tree.md) to Nette.
 
 
-## Usage
+## Install
 
-Install latest version via composer:
+Via Composer:
 
 ```sh
 $ composer require zenify/doctrine-extensions-tree
 ```
+
+## Usage
 
 For entity implementation, follow [manual](https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/tree.md) 
