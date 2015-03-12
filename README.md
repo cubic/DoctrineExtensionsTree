@@ -17,6 +17,114 @@ Via Composer:
 $ composer require zenify/doctrine-extensions-tree
 ```
 
+Register extension in your `config.neon`:
+
+```yaml
+extensions:
+	- Zenify\DoctrineExtensionsTree\DI\TreeExtension
+```
+
+
 ## Usage
 
-For entity implementation, follow [manual](https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/tree.md) 
+For entity implementation, follow [manual](https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/tree.md)
+ 
+Very simple entity could look like this:
+ 
+```php
+namespace App\Entities;
+
+use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * @ORM\Entity(repositoryClass="App\Model\CategoryTree")
+ * @Gedmo\Tree(type="materializedPath")
+ */
+class Category
+{
+
+	/**
+	 * @ORM\Column(type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue
+	 */
+	public $id;
+
+	/**
+	 * @Gedmo\TreePathSource
+	 * @ORM\Column(type="string")
+	 * @var string
+	 */
+	private $name;
+
+	/**
+	 * @Gedmo\TreeParent
+	 * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"})
+	 * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=TRUE)
+	 * @var Category
+	 */
+	private $parent;
+
+	/**
+ 	 * @Gedmo\TreePath(separator="|")
+	 * @ORM\Column(type="string", nullable=TRUE)
+	 * @var string
+	 */
+	private $path;
+
+
+	/**
+	 * @param string $name
+	 * @param Category $parent
+	 */
+	public function __construct($name, Category $parent = NULL)
+	{
+		$this->name = $name;
+		$this->parent = $parent;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
+
+
+	/**
+	 * @return Category
+	 */
+	public function getParent()
+	{
+		return $this->parent;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getPath()
+	{
+		return $this->path;
+	}
+
+}
+```
+
+And it's repository:
+
+```php
+namespace App\Model;
+
+use Gedmo\Tree\Entity\Repository\MaterializedPathRepository;
+
+
+class CategoryTree extends MaterializedPathRepository
+{
+
+}
+```
