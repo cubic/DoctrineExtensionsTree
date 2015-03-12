@@ -2,8 +2,8 @@
 
 namespace Zenify\DoctrineExtensionsTree\Tests\Project\Entities;
 
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
@@ -36,7 +36,7 @@ class Category
 	private $parent;
 
 	/**
- 	 * @Gedmo\TreePath(separator="|")
+	 * @Gedmo\TreePath(separator="|")
 	 * @ORM\Column(type="string", nullable=TRUE)
 	 * @var string
 	 */
