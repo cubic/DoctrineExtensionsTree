@@ -8,7 +8,7 @@ php:
 matrix:
   include:
     - php: 5.5
-      env: NETTE_VERSION=2.2.*
+      env: NETTE_VERSION=2.3.*
   allow_failures:
     - php: 7.0
 
